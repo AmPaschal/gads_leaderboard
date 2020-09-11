@@ -1,0 +1,2 @@
+rootProject.name='Gads Leaderboard'
+include ':app'

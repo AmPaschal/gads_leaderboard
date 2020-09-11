@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/leaderFragment">
+
+    <fragment
+        android:id="@+id/leaderFragment"
+        android:name="com.ampaschal.gadsleaderboard.ui.LeaderFragment"
+        android:label="leader_fragment"
+        tools:layout="@layout/leader_fragment" >
+        <action
+            android:id="@+id/action_leaderFragment_to_submitFragment"
+            app:destination="@id/submitFragment" />
+        <action
+            android:id="@+id/action_leaderFragment_to_resultDialogFragment"
+            app:destination="@id/resultDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/confirmationDialogFragment"
+        android:name="com.ampaschal.gadsleaderboard.ui.ConfirmationDialogFragment"
+        android:label="ConfirmationDialogFragment" />
+    <fragment
+        android:id="@+id/submitFragment"
+        android:name="com.ampaschal.gadsleaderboard.ui.SubmitFragment"
+        android:label="fragment_submit"
+        tools:layout="@layout/fragment_submit" >
+        <action
+            android:id="@+id/action_submitFragment_to_confirmationDialogFragment"
+            app:destination="@id/confirmationDialogFragment" />
+        <action
+            android:id="@+id/action_submitFragment_to_resultDialogFragment"
+            app:destination="@id/resultDialogFragment" />
+        <action
+            android:id="@+id/action_submitFragment_to_leaderFragment"
+            app:destination="@id/leaderFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/resultDialogFragment"
+        android:name="com.ampaschal.gadsleaderboard.ui.ResultDialogFragment"
+        android:label="ResultDialogFragment" >
+        <argument
+            android:name="successful"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </dialog>
+</navigation>
